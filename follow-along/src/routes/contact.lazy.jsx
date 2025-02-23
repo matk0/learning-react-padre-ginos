@@ -1,8 +1,8 @@
-import { createFileRoute } from '@tanstack/react-router';
+import { createLazyFileRoute } from '@tanstack/react-router';
 import { useMutation } from '@tanstack/react-query';
 import postContact from '../api/postContact';
 
-export const Route = createFileRoute('/contact')({
+export const Route = createLazyFileRoute('/contact')({
   component: ContactRoute,
 });
 
@@ -23,7 +23,7 @@ function ContactRoute() {
     <div className="contact">
       <h2>Contact Us</h2>
       {mutation.isSuccess ? (
-        <p>Submitted</p>
+        <h3>Submitted</h3>
       ) : (
         <form onSubmit={mutation.mutate}>
           <label>
